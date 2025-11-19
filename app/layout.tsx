@@ -15,15 +15,15 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: "Impex Media | Promotional Items LLC - Corporate Gifts & Branded Merchandise UAE",
+  title: "Impex Capital Branding & Media House | B2B Bulk Production & Printing Dubai UAE",
   description:
-    "Leading supplier of promotional items, corporate gifts, and customized printing solutions in Dubai, UAE. Quality branded merchandise with fast turnaround times.",
+    "Premium B2B marketplace for bulk production, corporate branding, printing, and media solutions in Dubai. Where creativity meets capital strength. Request bulk quotes today.",
   keywords:
-    "promotional items, corporate gifts, branded merchandise, printing services, custom gifts, Dubai, UAE, signboards, promotional products",
-  authors: [{ name: "Impex Media" }],
+    "bulk printing Dubai, B2B marketplace UAE, corporate branding, promotional merchandise bulk, printing services Dubai, signage Dubai, packaging solutions, event branding, advertising campaigns",
+  authors: [{ name: "Impex Capital" }],
   openGraph: {
-    title: "Impex Media | Promotional Items LLC - Corporate Gifts UAE",
-    description: "Quality promotional items and customized printing solutions for businesses in UAE",
+    title: "Impex Capital Branding & Media House | B2B Marketplace Dubai",
+    description: "Premium bulk production, branding, and printing solutions for businesses in UAE",
     type: "website",
     locale: "en_AE",
   },

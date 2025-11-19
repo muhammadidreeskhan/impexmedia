@@ -1,21 +1,22 @@
 import { Header } from "@/components/header"
-import { HeroEnhanced } from "@/components/hero-enhanced"
-import { ServicesGridEnhanced } from "@/components/services-grid-enhanced"
-import { FeaturedProductsEnhanced } from "@/components/featured-products-enhanced"
-import { SignsBoards } from "@/components/signs-boards"
+import { HeroCarousel } from "@/components/hero-carousel"
+import { ServiceCategories } from "@/components/service-categories"
+import { FeaturedMarketplace } from "@/components/featured-marketplace"
+import { WhyChooseUs } from "@/components/why-choose-us"
+import { IndustriesServed } from "@/components/industries-served"
+import { BulkQuoteSection } from "@/components/bulk-quote-section"
 import { Testimonials } from "@/components/testimonials"
-import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Impex Media | Promotional Items LLC - Corporate Gifts & Branded Merchandise UAE",
+  title: "Impex Capital Branding & Media House | B2B Bulk Production & Printing Dubai UAE",
   description:
-    "Leading supplier of promotional items, corporate gifts, and customized printing solutions in Dubai, UAE. Quality branded merchandise with fast turnaround times.",
+    "Premium B2B marketplace for bulk production, corporate branding, printing, and media solutions in Dubai. Where creativity meets capital strength. Request bulk quotes today.",
   openGraph: {
-    title: "Impex Media | Promotional Items LLC - Corporate Gifts UAE",
-    description: "Quality promotional items and customized printing solutions for businesses in UAE",
-    url: "https://impexmedia.ae",
+    title: "Impex Capital Branding & Media House | B2B Marketplace Dubai",
+    description: "Premium bulk production, branding, and printing solutions for businesses in UAE",
+    url: "https://impexcapital.ae",
     type: "website",
   },
 }
@@ -24,12 +25,13 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Header />
-      <HeroEnhanced />
-      <ServicesGridEnhanced />
-      <FeaturedProductsEnhanced />
-      <SignsBoards />
+      <HeroCarousel />
+      <ServiceCategories />
+      <FeaturedMarketplace />
+      <WhyChooseUs />
+      <IndustriesServed />
+      <BulkQuoteSection />
       <Testimonials />
-      <CTASection />
       <Footer />
     </main>
   )

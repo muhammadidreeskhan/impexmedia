@@ -5,13 +5,13 @@ import Link from "next/link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Our Services | Impex Media - Corporate Gifts & Printing Solutions",
+  title: "B2B Services | Impex Capital - Bulk Production & Corporate Branding",
   description:
-    "Explore our comprehensive services including printing, custom gifts, digital marketing, design & branding, embroidery, and web development.",
+    "Comprehensive B2B services: bulk printing, corporate branding, promotional merchandise, signage, packaging, digital media, and advertising campaigns.",
   openGraph: {
-    title: "Our Services | Impex Media",
-    description: "Comprehensive corporate branding and printing solutions",
-    url: "https://impexmedia.ae/services",
+    title: "B2B Services | Impex Capital Branding & Media House",
+    description: "Bulk production and corporate branding solutions for businesses",
+    url: "https://impexcapital.ae/services",
   },
 }
 
@@ -164,15 +164,18 @@ export default function ServicesPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-black text-white py-20 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F59E0B]/20 to-transparent" />
+      <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary text-white py-20 md:py-32">
+        <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-[#F59E0B]">
+            <span className="inline-block px-4 py-2 bg-gold/20 border border-gold/40 rounded-full text-gold text-sm font-semibold mb-4">
+              B2B Solutions
+            </span>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
               Our Services
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Comprehensive solutions for all your corporate branding, printing, and digital needs. Quality service with fast turnaround times.
+            <p className="text-xl text-gray-200 mb-8">
+              Comprehensive B2B solutions for bulk production, corporate branding, and media services. Scale meets quality.
             </p>
           </div>
         </div>
@@ -187,10 +190,10 @@ export default function ServicesPage() {
               return (
                 <div
                   key={index}
-                  className="group relative bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-[#F59E0B] transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up"
+                  className="group relative bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-gold transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#0ea5a4] to-[#14b8a6] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <Icon size={28} className="text-white" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-heading font-bold text-gray-900 mb-4">{service.title}</h3>
@@ -198,14 +201,14 @@ export default function ServicesPage() {
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-sm text-gray-700 flex items-center gap-3">
-                        <span className="w-2 h-2 bg-[#F59E0B] rounded-full flex-shrink-0" aria-hidden="true"></span>
+                        <span className="w-2 h-2 bg-gold rounded-full flex-shrink-0" aria-hidden="true"></span>
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 text-[#F59E0B] hover:text-[#D97706] font-semibold transition-colors group-hover:gap-3"
+                    className="inline-flex items-center gap-2 text-gold hover:text-gold-dark font-semibold transition-colors group-hover:gap-3"
                   >
                     Get Started
                     <span>→</span>
@@ -218,19 +221,19 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-black text-white">
+      <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-[#F59E0B]">
-            Ready to Get Started?
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
+            Ready to Scale Your Brand?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss your project and find the perfect solution for your needs.
+          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Contact us today for bulk pricing and custom B2B solutions tailored to your business needs.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[#F59E0B] hover:bg-[#D97706] text-white px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
+            className="inline-block bg-gold hover:bg-gold-light text-primary px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
           >
-            Request a Quote
+            Request Bulk Quote
           </Link>
         </div>
       </section>

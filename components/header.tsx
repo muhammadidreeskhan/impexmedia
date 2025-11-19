@@ -19,7 +19,9 @@ export function Header() {
   const navItems = [
     { label: "Services", href: "/services" },
     { label: "Products", href: "/products" },
-    { label: "About", href: "/about" },
+    { label: "Industries", href: "/industries" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ]
 
@@ -34,18 +36,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Impex Media Home">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
-                <span className="text-white font-heading font-bold text-lg">IM</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-highlight rounded-full animate-pulse"></div>
-            </div>
-            <span className={`font-heading font-bold text-lg transition-colors hidden sm:inline ${
-              scrolled ? "text-primary" : "text-white"
-            }`}>
-              Impex Media
-            </span>
+          <Link href="/" className="flex items-center gap-3 group" aria-label="Impex Capital Home">
+            <img 
+              src="/logo1.png" 
+              alt="Impex Capital Logo" 
+              className="h-40 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,9 +65,9 @@ export function Header() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="btn-magnetic bg-gradient-to-r from-highlight to-yellow-500 hover:from-yellow-500 hover:to-highlight text-primary px-6 py-3 rounded-lg font-heading font-bold transition-all text-sm shadow-lg hover:shadow-xl"
+              className="btn-magnetic bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-primary px-6 py-3 rounded-lg font-heading font-bold transition-all text-sm shadow-lg hover:shadow-xl"
             >
-              Request Quote
+              Request Bulk Quote
             </Link>
           </div>
 
@@ -111,11 +107,11 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="block px-4 py-3 bg-gradient-to-r from-highlight to-yellow-500 text-primary rounded-lg font-heading font-bold hover:shadow-lg transition-all animate-fade-in-up"
+              className="block px-4 py-3 bg-gradient-to-r from-gold to-gold-light text-primary rounded-lg font-heading font-bold hover:shadow-lg transition-all animate-fade-in-up"
               style={{ animationDelay: "200ms" }}
               onClick={() => setIsOpen(false)}
             >
-              Request Quote
+              Request Bulk Quote
             </Link>
           </nav>
         )}

@@ -69,15 +69,21 @@ export default function ContactClientPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-black text-white py-20 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F59E0B]/20 to-transparent" />
+      <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary text-white py-20 md:py-32">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 text-[#F59E0B]">
-              Get in Touch
+            <span className="inline-block px-4 py-2 bg-gold/20 border border-gold/40 rounded-full text-gold text-sm font-semibold mb-4">
+              Contact Us
+            </span>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
+              Request Bulk Quote
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Have a project in mind? Let's discuss how we can help bring your vision to life with premium quality and fast turnaround.
+            <p className="text-xl text-gray-200 mb-8">
+              Have a bulk production project in mind? Let's discuss how we can deliver premium quality with fast turnaround times and competitive pricing.
             </p>
           </div>
         </div>
@@ -94,45 +100,45 @@ export default function ContactClientPage() {
               </div>
 
               <div className="flex gap-4 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#0ea5a4] to-[#14b8a6] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <Phone size={24} className="text-white" aria-hidden="true" />
+                <div className="w-14 h-14 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Phone size={24} className="text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-gray-900 mb-2">Phone</h3>
-                  <a href="tel:+971507766241" className="text-gray-600 hover:text-[#F59E0B] transition-colors block">
+                  <a href="tel:+971507766241" className="text-gray-600 hover:text-gold transition-colors block">
                     +971 50 776 6241
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-4 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#0ea5a4] to-[#14b8a6] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <Mail size={24} className="text-white" aria-hidden="true" />
+                <div className="w-14 h-14 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Mail size={24} className="text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-gray-900 mb-2">Email</h3>
                   <a
-                    href="mailto:info@impexmedia.ae"
-                    className="text-gray-600 hover:text-[#F59E0B] transition-colors block"
+                    href="mailto:info@impexcapital.ae"
+                    className="text-gray-600 hover:text-gold transition-colors block"
                   >
-                    info@impexmedia.ae
+                    info@impexcapital.ae
                   </a>
                   <a
-                    href="mailto:sales@impexmedia.ae"
-                    className="text-gray-600 hover:text-[#F59E0B] transition-colors block"
+                    href="mailto:sales@impexcapital.ae"
+                    className="text-gray-600 hover:text-gold transition-colors block"
                   >
-                    sales@impexmedia.ae
+                    sales@impexcapital.ae
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-4 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-[#0ea5a4] to-[#14b8a6] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MapPin size={24} className="text-white" aria-hidden="true" />
+                <div className="w-14 h-14 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <MapPin size={24} className="text-primary" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-gray-900 mb-2">Address</h3>
-                  <p className="text-gray-600">Dubai, UAE</p>
+                  <p className="text-gray-600">Dubai, United Arab Emirates</p>
                   <p className="text-gray-600">Available for meetings by appointment</p>
                 </div>
               </div>
@@ -151,7 +157,7 @@ export default function ContactClientPage() {
             {/* Quote Form */}
             <div className="lg:col-span-2 animate-fade-in-up stagger-1">
               <div className="bg-white rounded-2xl border-2 border-gray-200 p-8 md:p-10 shadow-xl">
-                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">Request a Quote</h2>
+                <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">Request Bulk Quote</h2>
 
                 {submitStatus === "success" && (
                   <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-xl" role="alert">
@@ -182,7 +188,7 @@ export default function ContactClientPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="John Doe"
                     />
                   </div>
@@ -199,7 +205,7 @@ export default function ContactClientPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -216,7 +222,7 @@ export default function ContactClientPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="+971 50 XXX XXXX"
                     />
                   </div>
@@ -232,7 +238,7 @@ export default function ContactClientPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="Your Company"
                     />
                   </div>
@@ -248,16 +254,17 @@ export default function ContactClientPage() {
                       value={formData.service}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                     >
                       <option value="">Select a service</option>
-                      <option value="printing">Printing Services</option>
-                      <option value="gifts">Custom Gifts</option>
-                      <option value="digital">Digital Services</option>
-                      <option value="design">Design & Branding</option>
-                      <option value="embroidery">Embroidery & Stitching</option>
-                      <option value="web">Web & App Development</option>
-                      <option value="signs">Signs & Boards</option>
+                      <option value="bulk-printing">Bulk Printing</option>
+                      <option value="corporate-branding">Corporate Branding</option>
+                      <option value="promotional-merchandise">Promotional Merchandise</option>
+                      <option value="signage-banners">Signage & Banners</option>
+                      <option value="packaging">Packaging Solutions</option>
+                      <option value="digital-media">Digital Media Production</option>
+                      <option value="event-branding">Event Branding</option>
+                      <option value="advertising">Advertising Campaigns</option>
                     </select>
                   </div>
 
@@ -271,7 +278,7 @@ export default function ContactClientPage() {
                       name="budget"
                       value={formData.budget}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                     >
                       <option value="">Select budget range</option>
                       <option value="under-5k">Under AED 5,000</option>
@@ -294,7 +301,7 @@ export default function ContactClientPage() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F59E0B] focus:border-transparent resize-none transition-all"
+                      className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-none transition-all"
                       placeholder="Tell us about your project, requirements, and any specific details..."
                     />
                   </div>
@@ -303,7 +310,7 @@ export default function ContactClientPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#F59E0B] hover:bg-[#D97706] text-white px-6 py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:scale-105"
+                    className="w-full bg-gold hover:bg-gold-light text-primary px-6 py-4 rounded-xl font-heading font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:scale-105"
                   >
                     <Send size={20} />
                     {isSubmitting ? "Sending..." : "Send Quote Request"}
@@ -319,3 +326,5 @@ export default function ContactClientPage() {
     </main>
   )
 }
+
+

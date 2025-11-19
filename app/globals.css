@@ -84,25 +84,35 @@
 
 @theme inline {
   --font-sans: "Inter", "Inter Fallback";
-  --font-heading: "Poppins", "Poppins Fallback";
+  --font-heading: "Montserrat", "Poppins", "Poppins Fallback";
 
-  /* Primary Colors */
-  --color-primary: #0f1724;
-  --color-primary-light: #1a2332;
-  --color-accent: #0ea5a4;
-  --color-accent-light: #14b8a6;
-  --color-highlight: #f59e0b;
+  /* Impex Capital Brand Colors */
+  --color-primary: #0A1A2F; /* Royal Navy Blue */
+  --color-primary-light: #1a2f4a;
+  --color-primary-dark: #050d17;
+  --color-gold: #D4AF37; /* Capital Gold */
+  --color-gold-light: #e0c158;
+  --color-gold-dark: #b8941f;
+  --color-charcoal: #1A1A1A; /* Charcoal Black */
+  --color-platinum: #C0C5CC; /* Platinum Silver */
+  
+  /* Legacy mappings for compatibility */
+  --color-accent: #D4AF37;
+  --color-accent-light: #e0c158;
+  --color-highlight: #D4AF37;
 
   /* Neutrals */
   --color-bg: #ffffff;
   --color-bg-secondary: #f8f9fa;
-  --color-text: #0f1724;
+  --color-bg-dark: #0A1A2F;
+  --color-text: #1A1A1A;
   --color-text-secondary: #6b7280;
+  --color-text-light: #ffffff;
   --color-border-color: #e5e7eb;
 
   /* Semantic Tokens */
   --color-background: #ffffff;
-  --color-foreground: #0f1724;
+  --color-foreground: #1A1A1A;
   --color-muted: #f8f9fa;
   --color-muted-foreground: #6b7280;
   --color-border: #e5e7eb;
@@ -328,10 +338,19 @@ html {
   box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
 }
 
+/* Gold Glow Effect */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
 /* Gradient Border */
 .gradient-border {
   position: relative;
-  background: linear-gradient(45deg, #0ea5a4, #f59e0b, #0ea5a4);
+  background: linear-gradient(45deg, #D4AF37, #0A1A2F, #D4AF37);
   background-size: 200% 200%;
   animation: gradientShift 3s ease infinite;
   padding: 2px;
