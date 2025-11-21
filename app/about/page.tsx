@@ -1,4 +1,4 @@
-import { Header } from "@/components/header"
+import { UnifiedHeader } from "@/components/unified-header"
 import { Footer } from "@/components/footer"
 import { Building2, Users, Award, TrendingUp, Target, Heart, Shield, Zap } from "lucide-react"
 import type { Metadata } from "next"
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="overflow-x-hidden">
-      <Header />
+      <UnifiedHeader />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary text-white pt-32 pb-20 overflow-hidden">

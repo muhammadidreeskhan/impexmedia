@@ -406,3 +406,76 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Navy and Gold Color Utilities for Phase 2 */
+@layer utilities {
+  .bg-navy-900 {
+    background-color: #0A1A2F;
+  }
+  .bg-navy-800 {
+    background-color: #0f1f35;
+  }
+  .bg-navy-700 {
+    background-color: #1a2f4a;
+  }
+  .bg-gold-500 {
+    background-color: #D4AF37;
+  }
+  .bg-gold-600 {
+    background-color: #b8941f;
+  }
+  .text-navy-900 {
+    color: #0A1A2F;
+  }
+  .text-gold-500 {
+    color: #D4AF37;
+  }
+  .border-gold-500 {
+    border-color: #D4AF37;
+  }
+  .border-gold-500\/20 {
+    border-color: rgba(212, 175, 55, 0.2);
+  }
+  .border-gold-500\/30 {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  .border-gold-500\/50 {
+    border-color: rgba(212, 175, 55, 0.5);
+  }
+  .hover\:bg-gold-500:hover {
+    background-color: #D4AF37;
+  }
+  .hover\:bg-gold-600:hover {
+    background-color: #b8941f;
+  }
+  .hover\:text-gold-500:hover {
+    color: #D4AF37;
+  }
+  .hover\:border-gold-500:hover {
+    border-color: #D4AF37;
+  }
+  .hover\:border-gold-500\/50:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+  }
+  .bg-gold-500\/10 {
+    background-color: rgba(212, 175, 55, 0.1);
+  }
+  .bg-gold-500\/20 {
+    background-color: rgba(212, 175, 55, 0.2);
+  }
+  .fill-gold-500 {
+    fill: #D4AF37;
+  }
+  .from-navy-900 {
+    --tw-gradient-from: #0A1A2F;
+    --tw-gradient-to: rgb(10 26 47 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .via-navy-800 {
+    --tw-gradient-to: rgb(15 31 53 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), #0f1f35, var(--tw-gradient-to);
+  }
+  .to-navy-900 {
+    --tw-gradient-to: #0A1A2F;
+  }
+}

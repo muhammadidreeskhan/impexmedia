@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Header } from "@/components/header"
+import { UnifiedHeader } from "@/components/unified-header"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
@@ -101,7 +101,7 @@ export default function PortfolioPage() {
 
   return (
     <main className="overflow-x-hidden">
-      <Header />
+      <UnifiedHeader />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary text-white py-20 md:py-32">

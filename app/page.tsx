@@ -1,4 +1,4 @@
-import { Header } from "@/components/header"
+import { UnifiedHeader } from "@/components/unified-header"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { ServiceCategories } from "@/components/service-categories"
 import { FeaturedMarketplace } from "@/components/featured-marketplace"
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      <Header />
+      <UnifiedHeader />
       <HeroCarousel />
       <ServiceCategories />
       <FeaturedMarketplace />

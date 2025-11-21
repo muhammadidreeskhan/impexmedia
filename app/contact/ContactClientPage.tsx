@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Header } from "@/components/header"
+import { UnifiedHeader } from "@/components/unified-header"
 import { Footer } from "@/components/footer"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 
@@ -66,7 +66,7 @@ export default function ContactClientPage() {
 
   return (
     <main className="overflow-x-hidden">
-      <Header />
+      <UnifiedHeader />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary text-white py-20 md:py-32">

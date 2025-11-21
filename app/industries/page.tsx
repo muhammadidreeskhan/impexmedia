@@ -1,4 +1,4 @@
-import { Header } from "@/components/header"
+import { UnifiedHeader } from "@/components/unified-header"
 import { Footer } from "@/components/footer"
 import { Building2, Hotel, ShoppingBag, Calendar, Landmark, Heart, GraduationCap, UtensilsCrossed } from "lucide-react"
 import Link from "next/link"
@@ -125,7 +125,7 @@ const industries = [
 export default function IndustriesPage() {
   return (
     <main className="overflow-x-hidden">
-      <Header />
+      <UnifiedHeader />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-light to-primary text-white py-20 md:py-32">

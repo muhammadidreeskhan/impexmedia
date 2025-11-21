@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import { BurjKhalifaLogoWithText } from "./burj-khalifa-logo"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -10,11 +11,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <img 
-              src="/logo1.png" 
-              alt="Impex Capital Logo" 
-              className="h-30 md:h-40 w-auto object-contain mb-4"
-            />
+            <div className="mb-4">
+              <BurjKhalifaLogoWithText />
+            </div>
             <p className="text-gray-300 text-sm mb-4">
               A leading provider of bulk production, branding, printing, and media advertising solutions across the UAE. 
               We specialize in high-volume corporate orders, customized branded merchandise, premium print media, and advanced advertising strategies.

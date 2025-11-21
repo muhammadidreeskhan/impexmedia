@@ -1,6 +1,7 @@
 import type React from "react"
 import { Poppins, Inter } from "next/font/google"
 import "./globals.css"
+import RFQCart from "@/components/rfq-cart"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -49,7 +50,10 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <RFQCart />
+      </body>
     </html>
   )
 }

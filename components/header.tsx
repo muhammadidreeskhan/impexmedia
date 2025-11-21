@@ -30,42 +30,42 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/95 backdrop-blur-lg shadow-lg border-b border-border-color"
-          : "bg-transparent"
+          : "bg-navy-900/80 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24 md:h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group" aria-label="Impex Capital Home">
             <img 
               src="/logo1.png" 
               alt="Impex Capital Logo" 
-              className="h-40 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              className="h-24 md:h-28 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Main navigation">
             {navItems.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm font-medium transition-colors group ${
-                  scrolled ? "text-text-secondary hover:text-primary" : "text-white/90 hover:text-white"
+                className={`relative text-sm font-semibold transition-colors group whitespace-nowrap ${
+                  scrolled ? "text-gray-800 hover:text-gold" : "text-white hover:text-gold"
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-highlight group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="btn-magnetic bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-primary px-6 py-3 rounded-lg font-heading font-bold transition-all text-sm shadow-lg hover:shadow-xl"
+              className="btn-magnetic bg-gold hover:bg-gold-light text-navy-900 px-6 py-3 rounded-lg font-heading font-bold transition-all text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
             >
               Request Bulk Quote
             </Link>
@@ -73,7 +73,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
               scrolled ? "text-primary hover:bg-muted" : "text-white hover:bg-white/10"
             }`}
             onClick={() => setIsOpen(!isOpen)}
@@ -87,7 +87,7 @@ export function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <nav
-            className="md:hidden pb-4 space-y-2 animate-fade-in-up"
+            className="lg:hidden pb-4 space-y-2 animate-fade-in-up"
             aria-label="Mobile navigation"
           >
             {navItems.map((item, index) => (

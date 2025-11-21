@@ -10,7 +10,7 @@ const slides = [
     title: "Where Creativity Meets Capital Strength",
     subtitle: "Bulk Production. Powerful Branding. Premium Media.",
     description: "A premium Dubai-based agency specializing in bulk production, branding, printing, media, and advertising solutions",
-    image: "/corporate-gifts-branded-merchandise-premium.jpg",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=80",
     cta1: { text: "Request Bulk Quote", href: "/contact" },
     cta2: { text: "Browse Products", href: "/products" },
   },
@@ -19,7 +19,7 @@ const slides = [
     title: "Building Brands with Precision, Scale & Vision",
     subtitle: "Your Brand. Our Strategy. Maximum Impact.",
     description: "From mass printing to high-level digital campaigns — we combine innovation, precision, and reliability",
-    image: "/service_1.webp",
+    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1920&q=80",
     cta1: { text: "Get Quote", href: "/contact" },
     cta2: { text: "View Services", href: "/services" },
   },
@@ -28,7 +28,7 @@ const slides = [
     title: "Creative Solutions Powered by Capital",
     subtitle: "Branding • Media • Production",
     description: "Professional design, premium materials, strategic advertising, and powerful media production — all under one roof",
-    image: "/service_2.webp",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80",
     cta1: { text: "Start Project", href: "/contact" },
     cta2: { text: "Our Portfolio", href: "/portfolio" },
   },
@@ -49,7 +49,7 @@ export function HeroCarousel() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
 
   return (
-    <section className="relative h-[600px] md:h-[700px] bg-primary overflow-hidden">
+    <section className="relative h-[600px] md:h-[700px] bg-primary overflow-hidden mt-20 md:mt-24 lg:mt-28">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -82,7 +82,25 @@ export function HeroCarousel() {
               <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up stagger-2">
                 {slide.description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
+              
+              {/* Search Bar - Moved here */}
+              <div className="mb-6 animate-fade-in-up stagger-3">
+                <div className="bg-white rounded-lg shadow-2xl p-2 flex items-center gap-2 max-w-2xl">
+                  <Search className="text-gray-400 ml-2" size={20} />
+                  <input
+                    type="text"
+                    placeholder="Search for products, services, or categories..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="flex-1 px-4 py-3 outline-none text-charcoal"
+                  />
+                  <button className="bg-gold hover:bg-gold-light text-primary font-bold px-6 py-3 rounded-md transition-colors">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-4">
                 <Link
                   href={slide.cta1.href}
                   className="bg-gold hover:bg-gold-light text-primary font-heading font-bold px-8 py-4 rounded-lg transition-all text-center shadow-lg hover:shadow-xl hover:scale-105"
@@ -129,23 +147,6 @@ export function HeroCarousel() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Search Bar */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 w-full max-w-3xl px-4">
-        <div className="bg-white rounded-lg shadow-2xl p-2 flex items-center gap-2">
-          <Search className="text-gray-400 ml-2" size={20} />
-          <input
-            type="text"
-            placeholder="Search for products, services, or categories..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 px-4 py-3 outline-none text-charcoal"
-          />
-          <button className="bg-gold hover:bg-gold-light text-primary font-bold px-6 py-3 rounded-md transition-colors">
-            Search
-          </button>
-        </div>
       </div>
     </section>
   )
