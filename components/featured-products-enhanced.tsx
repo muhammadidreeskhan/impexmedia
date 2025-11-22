@@ -9,7 +9,6 @@ const products = [
     id: 1,
     name: "Corporate Bags",
     category: "Bags & Accessories",
-    price: "Custom Quote",
     image: "/branded-pen-corporate-gift.jpg",
     badge: "Popular",
     rating: 4.9,
@@ -18,7 +17,6 @@ const products = [
     id: 2,
     name: "Branded Apparel",
     category: "Clothing",
-    price: "Custom Quote",
     image: "/custom-notebook-branded.jpg",
     badge: "New",
     rating: 4.8,
@@ -27,7 +25,6 @@ const products = [
     id: 3,
     name: "Promotional Gifts",
     category: "Corporate Gifts",
-    price: "Custom Quote",
     image: "/usb-flash-drive-corporate.jpg",
     badge: "Trending",
     rating: 5.0,
@@ -36,7 +33,6 @@ const products = [
     id: 4,
     name: "Signboards",
     category: "Signage",
-    price: "Custom Quote",
     image: "/branded-mug-corporate-gift.jpg",
     badge: "Popular",
     rating: 4.7,
@@ -45,7 +41,6 @@ const products = [
     id: 5,
     name: "Printing Services",
     category: "Printing",
-    price: "Custom Quote",
     image: "/branded-pen-corporate-gift.jpg",
     badge: "Hot",
     rating: 4.9,
@@ -54,7 +49,6 @@ const products = [
     id: 6,
     name: "Stationery Items",
     category: "Office Supplies",
-    price: "Custom Quote",
     image: "/custom-notebook-branded.jpg",
     badge: "Popular",
     rating: 4.6,
@@ -183,15 +177,15 @@ export function FeaturedProductsEnhanced() {
                     <span className="text-sm text-text-secondary">({product.rating})</span>
                   </div>
 
-                  {/* Price and CTA */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-primary">{product.price}</span>
+                  {/* CTA */}
+                  <div className="flex items-center justify-end">
                     <Link
                       href={`/products/${product.id}`}
-                      className="bg-accent hover:bg-accent-light text-white p-2 rounded-lg transition-all inline-flex items-center justify-center group-hover:scale-110"
+                      className="bg-accent hover:bg-accent-light text-white px-4 py-2 rounded-lg transition-all inline-flex items-center justify-center gap-2 group-hover:scale-105"
                       aria-label={`View ${product.name}`}
                     >
                       <ShoppingCart size={18} />
+                      <span className="text-sm font-medium">Add to Cart</span>
                     </Link>
                   </div>
                 </div>

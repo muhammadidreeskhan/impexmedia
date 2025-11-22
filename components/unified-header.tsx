@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown, Printer, Package, Megaphone, Award, Briefcase, Building2, ShoppingBag, Utensils } from "lucide-react"
 import { BurjKhalifaLogoWithText } from "./burj-khalifa-logo"
-import ImpexLogoEnhanced from "./impex-logo-enhanced"
 
 // Service categories for mega menu
 const servicesMenu = [

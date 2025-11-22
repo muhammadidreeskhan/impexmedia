@@ -38,7 +38,6 @@ const products = [
     image: '/products/business-cards.jpg',
     rating: 4.8,
     reviews: 2847,
-    priceFrom: 45,
     moq: 500,
     leadTime: '2-3 days',
     featured: true
@@ -50,7 +49,6 @@ const products = [
     image: '/products/vinyl-banner.jpg',
     rating: 4.9,
     reviews: 1923,
-    priceFrom: 120,
     moq: 1,
     leadTime: '1-2 days',
     featured: true
@@ -62,7 +60,6 @@ const products = [
     image: '/products/packaging-box.jpg',
     rating: 4.7,
     reviews: 1456,
-    priceFrom: 850,
     moq: 1000,
     leadTime: '5-7 days',
     featured: false
@@ -74,7 +71,6 @@ const products = [
     image: '/products/usb-drives.jpg',
     rating: 4.6,
     reviews: 3241,
-    priceFrom: 12,
     moq: 100,
     leadTime: '3-5 days',
     featured: true
@@ -86,7 +82,6 @@ const products = [
     image: '/products/notebooks.jpg',
     rating: 4.8,
     reviews: 1876,
-    priceFrom: 8,
     moq: 250,
     leadTime: '2-4 days',
     featured: false
@@ -98,7 +93,6 @@ const products = [
     image: '/products/letterhead.jpg',
     rating: 4.9,
     reviews: 2134,
-    priceFrom: 95,
     moq: 500,
     leadTime: '1-2 days',
     featured: false
@@ -110,7 +104,6 @@ const products = [
     image: '/products/stickers.jpg',
     rating: 4.7,
     reviews: 4521,
-    priceFrom: 35,
     moq: 500,
     leadTime: '1-2 days',
     featured: true
@@ -122,7 +115,6 @@ const products = [
     image: '/products/tshirts.jpg',
     rating: 4.8,
     reviews: 2987,
-    priceFrom: 18,
     moq: 50,
     leadTime: '3-5 days',
     featured: false
@@ -134,7 +126,6 @@ const products = [
     image: '/products/rollup-banner.jpg',
     rating: 4.9,
     reviews: 1654,
-    priceFrom: 180,
     moq: 1,
     leadTime: '2-3 days',
     featured: true
@@ -146,7 +137,6 @@ const products = [
     image: '/products/brochures.jpg',
     rating: 4.7,
     reviews: 3876,
-    priceFrom: 65,
     moq: 500,
     leadTime: '2-3 days',
     featured: false
@@ -158,7 +148,6 @@ const products = [
     image: '/products/pens.jpg',
     rating: 4.6,
     reviews: 5432,
-    priceFrom: 2.5,
     moq: 500,
     leadTime: '3-5 days',
     featured: false
@@ -170,7 +159,6 @@ const products = [
     image: '/products/acrylic-sign.jpg',
     rating: 4.9,
     reviews: 876,
-    priceFrom: 450,
     moq: 1,
     leadTime: '5-7 days',
     featured: true
@@ -179,10 +167,9 @@ const products = [
 
 const sortOptions = [
   { value: 'featured', label: 'Featured' },
-  { value: 'price-low', label: 'Price: Low to High' },
-  { value: 'price-high', label: 'Price: High to Low' },
   { value: 'rating', label: 'Highest Rated' },
-  { value: 'popular', label: 'Most Popular' }
+  { value: 'popular', label: 'Most Popular' },
+  { value: 'newest', label: 'Newest First' }
 ]
 
 export default function ProductsMarketplaceFull() {
@@ -203,14 +190,12 @@ export default function ProductsMarketplaceFull() {
     // Sort products
     filtered.sort((a, b) => {
       switch (sortBy) {
-        case 'price-low':
-          return a.priceFrom - b.priceFrom
-        case 'price-high':
-          return b.priceFrom - a.priceFrom
         case 'rating':
           return b.rating - a.rating
         case 'popular':
           return b.reviews - a.reviews
+        case 'newest':
+          return b.id - a.id
         case 'featured':
         default:
           return (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
@@ -377,10 +362,6 @@ function ProductCard({ product, viewMode }: { product: typeof products[0], viewM
 
             <div className="flex flex-wrap gap-4 mb-4">
               <div>
-                <p className="text-xs text-gray-600">Starting from</p>
-                <p className="text-2xl font-bold text-gold">AED {product.priceFrom}</p>
-              </div>
-              <div>
                 <p className="text-xs text-gray-600">MOQ</p>
                 <p className="text-lg font-semibold text-gray-900">{product.moq} units</p>
               </div>
@@ -391,14 +372,15 @@ function ProductCard({ product, viewMode }: { product: typeof products[0], viewM
             </div>
 
             <div className="flex gap-3">
-              <Link href={`/products/${product.id}`} className="flex-1">
-                <Button className="w-full bg-gold hover:bg-gold-light text-white">
-                  View Details
+              <Button className="flex-1 bg-gold hover:bg-gold-light text-white">
+                <ShoppingCart className="w-5 h-5 mr-2" />
+                Add to Cart
+              </Button>
+              <Link href={`/products/${product.id}`}>
+                <Button variant="outline" className="border-gold/50 text-gold hover:bg-gold/10">
+                  Details
                 </Button>
               </Link>
-              <Button variant="outline" className="border-gold/50 text-gold hover:bg-gold/10">
-                <ShoppingCart className="w-5 h-5" />
-              </Button>
             </div>
           </div>
         </div>
@@ -443,10 +425,6 @@ function ProductCard({ product, viewMode }: { product: typeof products[0], viewM
 
         <div className="space-y-2 mb-4">
           <div className="flex justify-between text-sm">
-            <span className="text-gray-600">Starting from</span>
-            <span className="text-gold font-bold">AED {product.priceFrom}</span>
-          </div>
-          <div className="flex justify-between text-sm">
             <span className="text-gray-600">MOQ</span>
             <span className="text-gray-900 font-semibold">{product.moq} units</span>
           </div>
@@ -457,14 +435,15 @@ function ProductCard({ product, viewMode }: { product: typeof products[0], viewM
         </div>
 
         <div className="flex gap-2">
-          <Link href={`/products/${product.id}`} className="flex-1">
-            <Button className="w-full bg-gold hover:bg-gold-light text-white">
-              View Details
+          <Button className="flex-1 bg-gold hover:bg-gold-light text-white">
+            <ShoppingCart className="w-5 h-5 mr-2" />
+            Add to Cart
+          </Button>
+          <Link href={`/products/${product.id}`}>
+            <Button variant="outline" size="icon" className="border-gold/50 text-gold hover:bg-gold/10">
+              Details
             </Button>
           </Link>
-          <Button variant="outline" size="icon" className="border-gold/50 text-gold hover:bg-gold/10">
-            <ShoppingCart className="w-5 h-5" />
-          </Button>
         </div>
       </div>
     </div>

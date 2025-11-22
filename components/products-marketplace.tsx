@@ -12,7 +12,6 @@ const products = [
     name: "Custom Business Cards",
     category: "Stationery",
     image: "/branded-pen-corporate-gift.jpg",
-    priceRange: "Starting from AED 150",
     moq: "MOQ: 500 units",
     rating: 4.8,
     reviews: 124,
@@ -24,7 +23,6 @@ const products = [
     name: "Branded T-Shirts",
     category: "Apparel",
     image: "/custom-branded-t-shirts.jpg",
-    priceRange: "Starting from AED 25",
     moq: "MOQ: 100 units",
     rating: 4.9,
     reviews: 89,
@@ -36,7 +34,6 @@ const products = [
     name: "Corporate Notebooks",
     category: "Stationery",
     image: "/custom-notebook-branded.jpg",
-    priceRange: "Starting from AED 12",
     moq: "MOQ: 200 units",
     rating: 4.7,
     reviews: 156,
@@ -48,7 +45,6 @@ const products = [
     name: "USB Flash Drives",
     category: "Tech Accessories",
     image: "/branded-usb-flash-drives.jpg",
-    priceRange: "Starting from AED 18",
     moq: "MOQ: 100 units",
     rating: 4.9,
     reviews: 203,
@@ -60,7 +56,6 @@ const products = [
     name: "Promotional Bags",
     category: "Bags",
     image: "/branded-corporate-bags.jpg",
-    priceRange: "Starting from AED 35",
     moq: "MOQ: 50 units",
     rating: 4.8,
     reviews: 78,
@@ -72,7 +67,6 @@ const products = [
     name: "Coffee Mugs",
     category: "Drinkware",
     image: "/branded-coffee-mugs.jpg",
-    priceRange: "Starting from AED 15",
     moq: "MOQ: 100 units",
     rating: 4.6,
     reviews: 142,
@@ -84,7 +78,6 @@ const products = [
     name: "Promotional Pens",
     category: "Stationery",
     image: "/branded-promotional-pens.jpg",
-    priceRange: "Starting from AED 3",
     moq: "MOQ: 500 units",
     rating: 4.7,
     reviews: 267,
@@ -96,7 +89,6 @@ const products = [
     name: "Corporate Caps",
     category: "Apparel",
     image: "/corporate-branded-caps.jpg",
-    priceRange: "Starting from AED 22",
     moq: "MOQ: 100 units",
     rating: 4.8,
     reviews: 91,
@@ -108,7 +100,6 @@ const products = [
     name: "Branded Lanyards",
     category: "Promotional Items",
     image: "/branded-lanyards.jpg",
-    priceRange: "Starting from AED 5",
     moq: "MOQ: 200 units",
     rating: 4.5,
     reviews: 134,
@@ -120,7 +111,6 @@ const products = [
     name: "Water Bottles",
     category: "Drinkware",
     image: "/branded-mug-corporate-gift.jpg",
-    priceRange: "Starting from AED 28",
     moq: "MOQ: 50 units",
     rating: 4.7,
     reviews: 98,
@@ -166,9 +156,8 @@ export function ProductsMarketplace() {
               className="px-4 py-3 border border-border-color rounded-lg focus:outline-none focus:ring-2 focus:ring-gold"
             >
               <option value="popular">Most Popular</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
               <option value="rating">Highest Rated</option>
+              <option value="newest">Newest First</option>
             </select>
 
             {/* View Toggle */}
@@ -262,23 +251,23 @@ export function ProductsMarketplace() {
                   <span className="text-xs text-text-secondary">({product.reviews} reviews)</span>
                 </div>
 
-                {/* Price & MOQ */}
+                {/* MOQ */}
                 <div className="mb-4">
-                  <p className="text-base font-bold text-primary mb-1">{product.priceRange}</p>
                   <p className="text-xs text-text-secondary">{product.moq}</p>
                 </div>
 
                 {/* CTA Buttons */}
                 <div className="flex gap-2">
+                  <button className="flex-1 bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+                    <ShoppingCart size={18} />
+                    Add to Cart
+                  </button>
                   <Link
                     href={`/products/${product.id}`}
-                    className="flex-1 bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors text-center"
+                    className="bg-gold hover:bg-gold-light text-primary px-4 py-2 rounded-lg transition-colors text-sm font-semibold"
                   >
-                    View Details
+                    Details
                   </Link>
-                  <button className="bg-gold hover:bg-gold-light text-primary p-2 rounded-lg transition-colors">
-                    <ShoppingCart size={18} />
-                  </button>
                 </div>
               </div>
             </div>

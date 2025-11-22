@@ -28,13 +28,7 @@ const productData: Record<string, any> = {
       'Finishing': 'Matte/Gloss Lamination',
       'Corners': 'Square or Rounded'
     },
-    pricingTiers: [
-      { quantity: 500, price: 45, unit: 0.09 },
-      { quantity: 1000, price: 75, unit: 0.075 },
-      { quantity: 2500, price: 165, unit: 0.066 },
-      { quantity: 5000, price: 300, unit: 0.06 },
-      { quantity: 10000, price: 550, unit: 0.055 }
-    ],
+
     leadTime: '2-3 business days',
     moq: 500,
     images: ['/products/business-cards.jpg', '/products/business-cards-2.jpg']
@@ -46,14 +40,6 @@ export default function ProductDetailLight({ productId }: { productId: string })
   const [quantity, setQuantity] = useState(product.moq)
   const [selectedImage, setSelectedImage] = useState(0)
   const [selectedFinish, setSelectedFinish] = useState('Matte')
-
-  const getCurrentPrice = () => {
-    const tier = [...product.pricingTiers].reverse().find(t => quantity >= t.quantity)
-    return tier || product.pricingTiers[0]
-  }
-
-  const currentTier = getCurrentPrice()
-  const totalPrice = (currentTier.unit * quantity).toFixed(2)
 
   return (
     <div className="container mx-auto px-4 pt-32 pb-12">
@@ -118,9 +104,9 @@ export default function ProductDetailLight({ productId }: { productId: string })
 
           <p className="text-gray-700 text-lg mb-8">{product.description}</p>
 
-          {/* Pricing Calculator */}
+          {/* Product Configuration */}
           <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Calculate Your Price</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Configure Your Order</h3>
             
             <div className="mb-4">
               <label className="text-sm text-gray-700 mb-2 block font-semibold">Quantity</label>
@@ -154,34 +140,9 @@ export default function ProductDetailLight({ productId }: { productId: string })
             </div>
 
             <div className="border-t border-gray-200 pt-4">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-gray-600">Unit Price:</span>
-                <span className="text-gray-900 font-semibold">AED {currentTier.unit.toFixed(3)}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-xl text-gray-900 font-bold">Total Price:</span>
-                <span className="text-3xl text-gold font-bold">AED {totalPrice}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Pricing Tiers */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6 shadow-sm">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Volume Discounts</h3>
-            <div className="space-y-2">
-              {product.pricingTiers.map((tier: any) => (
-                <div
-                  key={tier.quantity}
-                  className={`flex justify-between items-center p-3 rounded-lg ${
-                    quantity >= tier.quantity
-                      ? 'bg-gold/10 border border-gold'
-                      : 'bg-gray-50'
-                  }`}
-                >
-                  <span className="text-gray-900 font-medium">{tier.quantity}+ units</span>
-                  <span className="text-gold font-semibold">AED {tier.unit}/unit</span>
-                </div>
-              ))}
+              <p className="text-sm text-gray-600 mb-2">
+                Request a custom quote for your specific requirements. Our team will provide competitive pricing based on your order details.
+              </p>
             </div>
           </div>
 
@@ -189,7 +150,7 @@ export default function ProductDetailLight({ productId }: { productId: string })
           <div className="flex gap-4 mb-8">
             <Button className="flex-1 bg-gold hover:bg-gold-light text-white h-14 text-lg font-semibold shadow-lg">
               <ShoppingCart className="w-5 h-5 mr-2" />
-              Add to RFQ Cart
+              Add to Cart & Request Quote
             </Button>
             <Button variant="outline" size="icon" className="h-14 w-14 border-gold/50 text-gold hover:bg-gold/10">
               <Heart className="w-6 h-6" />

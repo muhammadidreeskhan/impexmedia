@@ -6,42 +6,36 @@ const products = [
     id: 1,
     name: "Corporate Bags",
     category: "Bags & Accessories",
-    price: "Custom Quote",
     image: "/branded-pen-corporate-gift.jpg",
   },
   {
     id: 2,
     name: "Branded Apparel",
     category: "Clothing",
-    price: "Custom Quote",
     image: "/custom-notebook-branded.jpg",
   },
   {
     id: 3,
     name: "Promotional Gifts",
     category: "Corporate Gifts",
-    price: "Custom Quote",
     image: "/usb-flash-drive-corporate.jpg",
   },
   {
     id: 4,
     name: "Signboards",
     category: "Signage",
-    price: "Custom Quote",
     image: "/branded-mug-corporate-gift.jpg",
   },
   {
     id: 5,
     name: "Printing Services",
     category: "Printing",
-    price: "Custom Quote",
     image: "/branded-pen-corporate-gift.jpg",
   },
   {
     id: 6,
     name: "Stationery Items",
     category: "Office Supplies",
-    price: "Custom Quote",
     image: "/custom-notebook-branded.jpg",
   },
 ]
@@ -72,14 +66,13 @@ export function FeaturedProducts() {
               </div>
               <div className="p-6">
                 <p className="text-sm text-accent font-medium mb-2">{product.category}</p>
-                <h3 className="text-lg font-heading font-bold text-primary mb-2">{product.name}</h3>
-                <p className="text-text-secondary text-sm mb-4">{product.price}</p>
+                <h3 className="text-lg font-heading font-bold text-primary mb-4">{product.name}</h3>
                 <Link
                   href={`/products/${product.id}`}
                   className="inline-flex items-center gap-2 bg-primary hover:bg-primary-light text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors"
                 >
                   <ShoppingCart size={16} />
-                  Request Quote
+                  Add to Cart & Request Quote
                 </Link>
               </div>
             </div>
