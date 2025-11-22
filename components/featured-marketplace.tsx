@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
 import { ShoppingCart, Star } from "lucide-react"
+import { useCart } from "@/contexts/CartContext"
 
 const products = [
   {
@@ -85,6 +88,8 @@ const products = [
 ]
 
 export function FeaturedMarketplace() {
+  const { addToCart } = useCart()
+  
   return (
     <section className="py-16 md:py-20 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,7 +153,10 @@ export function FeaturedMarketplace() {
 
                 {/* CTA Buttons */}
                 <div className="flex gap-2">
-                  <button className="flex-1 bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+                  <button 
+                    onClick={() => addToCart(product)}
+                    className="flex-1 bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors inline-flex items-center justify-center gap-2"
+                  >
                     <ShoppingCart size={18} />
                     Add to Cart
                   </button>

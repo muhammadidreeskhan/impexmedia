@@ -2,12 +2,18 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { UnifiedHeader } from "@/components/unified-header"
 import { Footer } from "@/components/footer"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { useCart } from "@/contexts/CartContext"
+import { useSearchParams } from "next/navigation"
 
 export default function ContactClientPage() {
+  const { items: cartItems, clearCart } = useCart()
+  const searchParams = useSearchParams()
+  const fromCart = searchParams?.get('cart') === 'true'
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,6 +25,20 @@ export default function ContactClientPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+  // Pre-fill message with cart items if coming from cart
+  useEffect(() => {
+    if (fromCart && cartItems.length > 0) {
+      const cartSummary = cartItems.map(item => 
+        `${item.name} - Quantity: ${item.quantity}${item.notes ? ` (${item.notes})` : ''}`
+      ).join('\n')
+      
+      setFormData(prev => ({
+        ...prev,
+        message: `Quote request for the following items:\n\n${cartSummary}\n\nAdditional details: `
+      }))
+    }
+  }, [fromCart, cartItems])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -39,7 +59,10 @@ export default function ContactClientPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          cartItems: cartItems.length > 0 ? cartItems : undefined
+        }),
       })
 
       if (response.ok) {
@@ -53,6 +76,10 @@ export default function ContactClientPage() {
           message: "",
           budget: "",
         })
+        // Clear cart after successful submission
+        if (cartItems.length > 0) {
+          clearCart()
+        }
       } else {
         setSubmitStatus("error")
       }
@@ -158,6 +185,21 @@ export default function ContactClientPage() {
             <div className="lg:col-span-2 animate-fade-in-up stagger-1">
               <div className="bg-white rounded-2xl border-2 border-gray-200 p-8 md:p-10 shadow-xl">
                 <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">Request Bulk Quote</h2>
+
+                {/* Cart Items Summary */}
+                {cartItems.length > 0 && (
+                  <div className="mb-6 p-4 bg-gold/10 border-2 border-gold/30 rounded-xl">
+                    <h3 className="font-semibold text-primary mb-3">Items in your cart ({cartItems.length}):</h3>
+                    <div className="space-y-2">
+                      {cartItems.map((item) => (
+                        <div key={item.id} className="text-sm text-gray-700 flex justify-between">
+                          <span>{item.name}</span>
+                          <span className="text-gray-500">Qty: {item.quantity}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {submitStatus === "success" && (
                   <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-xl" role="alert">

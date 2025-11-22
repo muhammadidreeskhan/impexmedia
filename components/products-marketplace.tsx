@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ShoppingCart, Star, Filter, Grid, List, Search } from "lucide-react"
+import { useCart } from "@/contexts/CartContext"
 
 const categories = ["All", "Apparel", "Drinkware", "Stationery", "Bags", "Tech Accessories", "Promotional Items"]
 
@@ -120,6 +121,7 @@ const products = [
 ]
 
 export function ProductsMarketplace() {
+  const { addToCart } = useCart()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
   const [searchQuery, setSearchQuery] = useState("")
@@ -258,7 +260,10 @@ export function ProductsMarketplace() {
 
                 {/* CTA Buttons */}
                 <div className="flex gap-2">
-                  <button className="flex-1 bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors inline-flex items-center justify-center gap-2">
+                  <button 
+                    onClick={() => addToCart(product)}
+                    className="flex-1 bg-primary hover:bg-primary-light text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors inline-flex items-center justify-center gap-2"
+                  >
                     <ShoppingCart size={18} />
                     Add to Cart
                   </button>

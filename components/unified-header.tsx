@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown, Printer, Package, Megaphone, Award, Briefcase, Building2, ShoppingBag, Utensils } from "lucide-react"
 import { BurjKhalifaLogoWithText } from "./burj-khalifa-logo"
+import { CartButton } from "./cart-button"
 
 // Service categories for mega menu
 const servicesMenu = [
@@ -241,8 +242,9 @@ export function UnifiedHeader() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Cart & CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <CartButton />
             <Link
               href="/contact"
               className={`px-6 py-2.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap ${
