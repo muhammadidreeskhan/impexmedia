@@ -12,7 +12,7 @@ import { useSearchParams } from "next/navigation"
 export default function ContactClientPage() {
   const { items: cartItems, clearCart } = useCart()
   const searchParams = useSearchParams()
-  const fromCart = searchParams?.get('cart') === 'true'
+  const fromCart = searchParams ? searchParams.get('cart') === 'true' : false
   
   const [formData, setFormData] = useState({
     name: "",
